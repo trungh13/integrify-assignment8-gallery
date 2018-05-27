@@ -124,7 +124,7 @@ $(document).ready(function() {
         `<h3>What motivate me?</h3>${item.motivatesMe}`
       );
   });
-  
+
   $gallery.on("mouseover", ".demo__part-front", function() {
     if (event.target.children[0] != undefined)
       if (event.target.children[0].classList.contains("hide")) {
@@ -200,18 +200,29 @@ $(document).ready(function() {
       waveChange(rowN, colN - 1);
     }, staggerTime);
   }
+  $(window).resize(function() {
+    if ($(window).width() > 1200) {
+      containerGrid.gridTemplateColumns = "5fr 4fr";
+      console.log("screen", $(window).width());
+    } else {
+      console.log("screen", $(window).width());
+      containerGrid.gridTemplateColumns = "1fr";
+    }
+  });
+  function shuffle(arr) {
+    let ctr = arr.length;
+    let temp;
+    let index;
+    while (ctr > 0) {
+      index = Math.floor(Math.random() * ctr);
+      ctr--;
+      temp = arr[ctr];
+      arr[ctr] = arr[index];
+      arr[index] = temp;
+    }
+    return arr;
+  }
+  
 });
 
-function shuffle(arr) {
-  let ctr = arr.length;
-  let temp;
-  let index;
-  while (ctr > 0) {
-    index = Math.floor(Math.random() * ctr);
-    ctr--;
-    temp = arr[ctr];
-    arr[ctr] = arr[index];
-    arr[index] = temp;
-  }
-  return arr;
-}
+

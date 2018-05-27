@@ -422,5 +422,6 @@ i.fas.fa-quote-left.fa-2x {
     margin: auto;
     box-shadow: 4px 4px var(--color-4);
     cursor: pointer;
+    margin-top:10px;
   }
 }
