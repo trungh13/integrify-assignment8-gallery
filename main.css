@@ -391,6 +391,7 @@ i.fas.fa-quote-left.fa-2x {
   justify-content: center;
   align-items: center;
   background-color: var(--color-1-transperent);
+  text-align:center;
 }
 .demo__help img{
   width:50%;
@@ -398,7 +399,7 @@ i.fas.fa-quote-left.fa-2x {
 .hide {
   display: none;
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1400px) {
   .demo_container {
     width: 100%;
   }

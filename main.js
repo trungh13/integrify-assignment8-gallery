@@ -3,7 +3,7 @@ $(document).ready(function() {
   const rows = 6; //change this also in css
   const cols = 7; //change this also in css
   const staggerTime = 50;
-
+  let autoClicker = false;
   const urls = [];
   const fullName = [];
 
@@ -62,10 +62,12 @@ $(document).ready(function() {
 
   const containerGrid = document.querySelector(".demo_container").style;
   $gallery.on("click", ".demo__part-front", function() {
+    autoClicker = true;
     document.querySelector(".demo__infomation").classList.remove("hide");
-    if (window.innerWidth<771)
-    document.querySelector(".closeBtn").classList.remove("hide");
-    if (window.innerWidth > 1200) containerGrid.gridTemplateColumns = "5fr 4fr";
+    if (window.innerWidth < 1401){
+      document.querySelector(".closeBtn").classList.remove("hide");
+    }
+    if (window.innerWidth > 1400) containerGrid.gridTemplateColumns = "5fr 4fr";
 
     //until here
     $image.css(
@@ -149,6 +151,7 @@ $(document).ready(function() {
     }
   });
   function clickDemoBack() {
+    autoClicker = true;
     if (!isShowingBack()) return;
     setTimeout(function() {
       for (let row = 1; row <= rows; row++) {
@@ -202,11 +205,9 @@ $(document).ready(function() {
     }, staggerTime);
   }
   $(window).resize(function() {
-    if ($(window).width() > 1200) {
+    if ($(window).width() > 1400) {
       containerGrid.gridTemplateColumns = "5fr 4fr";
-      console.log("screen", $(window).width());
     } else {
-      console.log("screen", $(window).width());
       containerGrid.gridTemplateColumns = "1fr";
     }
   });
@@ -223,7 +224,17 @@ $(document).ready(function() {
     }
     return arr;
   }
-  
+  setInterval(function() {
+    const galleryDiv = document.querySelector(".demo__gallery").children;
+    if (!autoClicker) {
+      const randomEl = Math.floor(Math.random() * galleryDiv.length);
+      galleryDiv[randomEl].classList.contains("show-front")
+        ? galleryDiv[randomEl].children[1].click()
+        : window.innerWidth > 1400
+          ? galleryDiv[randomEl].children[0].click()
+          : document.querySelector(".closeBtn").click();
+    }
+
+    autoClicker = false;
+  }, 5000);
 });
-
-
