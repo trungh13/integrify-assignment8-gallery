@@ -391,7 +391,7 @@ i.fas.fa-quote-left.fa-2x {
   justify-content: center;
   align-items: center;
   background-color: var(--color-1-transperent);
-  text-align:center;
+  padding:50px;
 }
 .demo__help img{
   width:50%;

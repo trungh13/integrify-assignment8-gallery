@@ -58,7 +58,7 @@ $(document).ready(function() {
 
   setTimeout(function() {
     document.querySelector(".demo__help").style.display = "none";
-  }, 1000);
+  }, 3000);
 
   const containerGrid = document.querySelector(".demo_container").style;
   $gallery.on("click", ".demo__part-front", function() {
@@ -231,7 +231,7 @@ $(document).ready(function() {
       galleryDiv[randomEl].classList.contains("show-front")
         ? galleryDiv[randomEl].children[1].click()
         : window.innerWidth > 1400
-          ? galleryDiv[randomEl].children[0].click()
+          ? galleryDiv[randomEl].children[1].click()
           : document.querySelector(".closeBtn").click();
     }
 
