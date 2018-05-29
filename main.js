@@ -63,6 +63,7 @@ $(document).ready(function() {
   const containerGrid = document.querySelector(".demo_container").style;
   $gallery.on("click", ".demo__part-front", function() {
     document.querySelector(".demo__infomation").classList.remove("hide");
+    if (window.innerWidth<771)
     document.querySelector(".closeBtn").classList.remove("hide");
     if (window.innerWidth > 1200) containerGrid.gridTemplateColumns = "5fr 4fr";
 
