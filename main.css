@@ -430,7 +430,7 @@ i.fas.fa-quote-left.fa-2x {
     height:fit-content;
   }
 }
-@media only screen and (max-height: 7711px) {
+@media only screen and (max-width: 771px) {
   html,body{
     width: fit-content;
   }
